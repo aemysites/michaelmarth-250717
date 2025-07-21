@@ -1,3 +1,4 @@
+/* Tabs List Base Styles */
 .tabs .tabs-list {
   display: flex;
   gap: 0.5ch;
@@ -39,7 +40,6 @@
   margin: 0;
 }
 
-
 .tabs .tabs-list button[aria-selected='true'] {
   border-bottom: 1px solid var(--background-color);
   background-color: var(--background-color);
@@ -55,4 +55,181 @@
 
 .tabs .tabs-panel[aria-hidden='true'] {
   display: none;
+}
+
+/* Tabs Container Styles (merged both selectors) */
+.tabs.tabs21 {
+  background: #000;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Tabs Row */
+.tabs.tabs21 .tabs-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 54px;
+  border-bottom: none;
+  margin-top: 40px;
+  margin-bottom: 30px;
+  padding: 0;
+  background: transparent;
+  width: 100%;
+}
+
+/* Tab Buttons */
+.tabs.tabs21 .tabs-list .tabs-tab {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  color: #888;
+  font-family: Orbitron, Montserrat, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 21px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0 0 2px;
+  margin: 0;
+  transition: color 0.18s, border-bottom 0.18s;
+  outline: none;
+  box-shadow: none;
+  position: relative;
+}
+
+.tabs.tabs21 .tabs-list .tabs-tab[aria-selected="true"] {
+  color: #fff;
+  border-bottom: 1.5px solid #fff;
+  cursor: default;
+}
+
+.tabs.tabs21 .tabs-list .tabs-tab:focus {
+  outline: 2px solid #888;
+}
+
+.tabs.tabs21 .tabs-list .tabs-tab p {
+  margin: 0;
+  font-family: inherit;
+  letter-spacing: inherit;
+}
+
+/* Only show active panel */
+.tabs.tabs21 .tabs-panel {
+  width: 100vw;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  background: transparent;
+  display: none;
+  box-sizing: border-box;
+}
+
+.tabs.tabs21 .tabs-panel[aria-hidden="false"] {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 0;
+  row-gap: 20px;
+  padding: 0;
+}
+
+/* Headline Styling */
+.tabs.tabs21 .tabs-panel[aria-hidden="false"] > div > h3 {
+  color: #fff;
+  font-family: Orbitron, Montserrat, Arial, sans-serif;
+  font-size: 3rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1.03;
+  margin: 0 0 12px;
+  max-width: 700px;
+  white-space: pre-line;
+  display: block;
+  overflow-wrap: break-word;
+}
+
+/* Headline/Image margin for tighter layout */
+.tabs.tabs21 .tabs-panel[aria-hidden="false"] > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Image block styling */
+.tabs.tabs21 .tabs-panel[aria-hidden="false"] p {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 1px;
+}
+
+/* Remove fallback background and show image fully */
+.tabs.tabs21 .tabs-panel[aria-hidden="false"] picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 1px;
+  background: transparent;
+}
+
+.tabs.tabs21 .tabs-panel[aria-hidden="false"] picture img {
+  display: block;
+  width: 100%;
+  max-width: 1050px;
+  height: auto;
+  border-radius: 22px;
+  margin: 0 auto;
+  object-fit: cover;
+  background: none;
+  box-shadow: none;
+}
+
+/* Responsive: stack & scale image and headline smaller for mobile */
+@media (width <= 1100px) {
+  .tabs.tabs21 .tabs-panel[aria-hidden="false"] picture img {
+    max-width: 96vw;
+    border-radius: 18px;
+  }
+
+  .tabs.tabs21 .tabs-panel[aria-hidden="false"] > div > h3 {
+    font-size: 2.1rem;
+    max-width: 92vw;
+  }
+}
+
+@media (width <= 600px) {
+  .tabs.tabs21 .tabs-list {
+    gap: 12px;
+    margin-bottom: 14px;
+    margin-top: 15px;
+  }
+
+  .tabs.tabs21 .tabs-panel[aria-hidden="false"] > div > h3 {
+    font-size: 1.12rem;
+    max-width: 92vw;
+    letter-spacing: 0.02em;
+  }
+
+  .tabs.tabs21 .tabs-panel[aria-hidden="false"] picture img {
+    border-radius: 10px;
+  }
 }
